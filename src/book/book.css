@@ -1,0 +1,74 @@
+.bk-stage{transition:opacity .5s var(--ease);position:fixed;inset:0;display:flex;justify-content:center;align-items:center;padding-top:var(--bar-h);padding-bottom:84px;
+  background:radial-gradient(1100px 700px at 50% 42%,#3a4a85 0%,var(--sky) 55%,#1B1A22 100%)}
+.bk-wrap{position:relative;flex:none;width:calc(var(--pw)*2);height:var(--ph);will-change:transform;--u:calc(var(--pw)/100)}
+.bk{position:absolute;inset:0;perspective:calc(var(--pw)*5);touch-action:none;cursor:pointer;user-select:none;-webkit-user-select:none}
+.bk-floor{position:absolute;left:50%;bottom:calc(var(--ph)*-.035);height:calc(var(--ph)*.07);border-radius:50%;background:#000;filter:blur(18px);opacity:.55;pointer-events:none}
+.leaf{position:absolute;left:50%;top:0;width:var(--pw);height:var(--ph);transform-origin:0 50%;transform-style:preserve-3d;will-change:transform}
+.leaf.hard{width:calc(var(--pw) + 8px);height:calc(var(--ph) + 12px);top:-6px}
+.face{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff}
+.face.back{transform:rotateY(180deg)}
+.gut,.sh{position:absolute;inset:0;pointer-events:none}
+.front .gut{right:auto;width:11%;background:linear-gradient(90deg,rgba(0,0,0,.26),rgba(0,0,0,.06) 45%,transparent)}
+.back .gut{left:auto;width:11%;background:linear-gradient(270deg,rgba(0,0,0,.26),rgba(0,0,0,.06) 45%,transparent)}
+.front .sh{background:linear-gradient(90deg,#000,#1b1d28);opacity:var(--sf,0)}
+.back .sh{background:linear-gradient(270deg,#000,#1b1d28);opacity:var(--sb,0)}
+.cast{position:absolute;top:0;height:var(--ph);pointer-events:none;opacity:0;z-index:20}
+.cast--r{left:50%;width:0;background:linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,0))}
+.cast--l{right:50%;width:0;background:linear-gradient(270deg,rgba(0,0,0,.6),rgba(0,0,0,0))}
+.pimg{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+
+/* pages made for the book: same language as the portfolio cover */
+.pg{position:absolute;inset:0;padding:calc(var(--u)*9) calc(var(--u)*9) calc(var(--u)*8);display:flex;flex-direction:column;color:#111;background:#fff;overflow:hidden}
+.pg--red{background:#EE1C25;color:#fff}
+.cond{font-weight:900;font-stretch:62%;letter-spacing:-.01em;line-height:.88;text-transform:uppercase}
+.cond.red{color:#EE1C25;font-size:calc(var(--u)*17)}
+.cond.red.sm{font-size:calc(var(--u)*13)}
+.cond.red.xl{font-size:calc(var(--u)*15)}
+.cond.outline{color:transparent;-webkit-text-stroke:calc(var(--u)*.35) #111;font-size:calc(var(--u)*17)}
+.cond.outline.xl{font-size:calc(var(--u)*15)}
+.cond.white{color:#fff;font-size:calc(var(--u)*19)}
+.blob{position:absolute;width:calc(var(--u)*24);height:calc(var(--u)*24);fill:#EE1C25;pointer-events:none}
+.blob--tr{right:calc(var(--u)*-6);top:calc(var(--u)*-6);transform:rotate(90deg)}
+.blob--bl{left:calc(var(--u)*-6);bottom:calc(var(--u)*-6);transform:rotate(-90deg)}
+.rows{list-style:none;margin-top:calc(var(--u)*8);padding:0}
+.rows li{display:flex;align-items:center;gap:calc(var(--u)*3);padding:calc(var(--u)*3.2) 0;border-top:calc(var(--u)*.35) solid #111;cursor:pointer;
+  font-weight:800;font-stretch:112%;font-size:calc(var(--u)*4.6);transition:padding .25s var(--ease),color .25s}
+.rows li:last-child{border-bottom:calc(var(--u)*.35) solid #111}
+.rows li:hover{padding-left:calc(var(--u)*2);color:#EE1C25}
+.rows li i{width:calc(var(--u)*3.4);height:calc(var(--u)*3.4);border-radius:50%;flex:none}
+.rows li span{flex:1}
+.rows em{font-style:normal;font-stretch:80%;font-weight:700;opacity:.55}
+.rows--tight{margin-top:calc(var(--u)*5)}
+.rows--tight li{padding:calc(var(--u)*1.35) 0;font-size:calc(var(--u)*3.2);font-weight:700;font-stretch:100%;line-height:1.25}
+.note{font-size:max(10px,calc(var(--u)*3.1));font-stretch:100%;font-weight:500;opacity:.7;margin-top:auto}
+.pg--end{justify-content:flex-start}
+.pg--end .brand{font-weight:800;font-stretch:125%;font-size:calc(var(--u)*7.4);letter-spacing:-.02em;color:#EE1C25;margin-top:calc(var(--u)*7);position:relative}
+.pg--end .note{margin-top:calc(var(--u)*1.5);position:relative}
+.cta{align-self:flex-start;margin-top:calc(var(--u)*6);background:#EE1C25;color:#fff;font-weight:800;font-stretch:112%;font-size:calc(var(--u)*4);
+  min-height:44px;padding:0 calc(var(--u)*6);border-radius:6px;position:relative;z-index:2;cursor:pointer}
+.cta:hover{background:#111}
+.plane{position:absolute;left:50%;top:50%;width:calc(var(--u)*40);transform:translate(-50%,-50%);fill:none;stroke:#fff;stroke-width:2.2;stroke-linejoin:round;opacity:.9}
+.pg--back{justify-content:flex-end}
+
+/* book controls */
+.bk-ctl{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;z-index:30;
+  padding:8px 10px;border:1px solid rgba(255,255,255,.22);border-radius:99px;background:rgba(27,26,34,.78);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:14px;font-weight:600;white-space:nowrap}
+.bk-ctl button{min-height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.28);border-radius:99px;transition:background .2s,color .2s,border-color .2s}
+.bk-ctl button:hover:not(:disabled){background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.bk-ctl button:disabled{opacity:.35;cursor:default}
+.bk-lab{min-width:118px;text-align:center}
+@media(max-width:719px){.bk-ctl{gap:6px;padding:6px}.bk-ctl .hide-s{display:none}.bk-lab{min-width:92px}.bk-stage{padding-bottom:78px}}
+.bk-hint{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 72px);text-align:center;font-size:13px;opacity:.7;pointer-events:none;transition:opacity .8s}
+
+/* zoom */
+.zoom{position:fixed;inset:0;z-index:80;background:rgba(15,14,20,.92);overflow:auto;padding:calc(var(--bar-h) + 16px) 16px 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;align-content:flex-start}
+.zoom img{width:min(100%,820px);height:auto;background:#fff}
+.zoom__close{position:fixed;top:calc(var(--bar-h) + 8px);right:16px;min-height:44px;padding:0 16px;border-radius:6px;background:var(--red);color:#fff;font-weight:700;z-index:81}
+
+/* back board of the hard cover: red frame, page sits inside it */
+.face.board{background:#EE1C25}
+.face.board .inner{position:absolute;left:0;top:6px;width:var(--pw);height:var(--ph);background:#fff;overflow:hidden}
+
+.bk-stage{transition:opacity .45s var(--ease)}
+.bk-stage.is-off{opacity:0;pointer-events:none;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s .45s}
